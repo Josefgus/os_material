@@ -19,7 +19,7 @@ The order below is the suggested order for the various lectures. For each lectur
 | 01 | Introduction | https://www.youtube.com/playlist?list=PLNP2wHlXPxGs |
 | 02 | Processes | https://www.youtube.com/playlist?list=PLdKN6j-dCZb0 |
 | 03 | Multithreaded Programming | https://www.youtube.com/playlist?list=PLSL2B2hUh7xo |
-| 04 | Scheduling | https://www.youtube.com/playlist?list=PLDtjXc-5M71M |
+| 04 | Process Scheduling | https://www.youtube.com/playlist?list=PLDtjXc-5M71M |
 | 05 | Synchronization - Part 1 | https://www.youtube.com/playlist?list=PLG8eRVzYTT1U | 
 | 06 | Synchronization - Part 2 | https://www.youtube.com/playlist?list=PLDwUGWNT5DeI |
 | 07 | Memory Management | https://www.youtube.com/playlist?list=PLSX1pbp9RzZ4 |
@@ -50,7 +50,7 @@ Additional slide-only decks are available for the course introduction and conclu
 6. Inter-process communication
 7. Pipes
 
-### 03. Threads
+### 03. Multithreaded Programming
 
 1. Introduction
 2. Multithreaded processes
@@ -61,7 +61,7 @@ Additional slide-only decks are available for the course introduction and conclu
 7. Implicit threading
 8. Threading issues
 
-### 04. Scheduling
+### 04. Process Scheduling
 
 1. Introduction and CPU-bound vs. I/O-bound processes
 2. Scheduling goals in batch systems
