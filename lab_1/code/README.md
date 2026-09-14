@@ -24,18 +24,3 @@ For example, on Ubuntu, you can install them using:
 sudo apt-get update
 sudo apt-get install build-essential cmake libreadline-dev libncurses5-dev libncursesw5-dev
 ```
-
-Troubleshooting Building
-------------------------
-
-On some newer Linux distributions (e.g. OpenSuse Tumbleweed 20260829), you may get a linker error with the provided CMakeLists.txt. This is because now the termcap functionality should be linked as `ncurses`, rather than using the `termcap` library directly (which in some cases no longer exists). The fix here is to change the following line:
-
-```
-target_link_libraries(lsh PRIVATE readline termcap)
-```
-
-to this:
-
-```
-target_link_libraries(lsh PRIVATE readline ncurses)
-```
