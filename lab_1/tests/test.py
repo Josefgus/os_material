@@ -312,11 +312,12 @@ class TestLsh(unittest.TestCase):
         """
         cd command to change directory
         """
-        with TempDir() as cwd:
-            self.lsh.sendline(f"cd {cwd}")
+        with TempDir() as tmp:
+            abs_tmp = Path(tmp).resolve()
+            self.lsh.sendline(f"cd {abs_tmp}")
             self.assertEqual(
-                cwd,
-                self.lsh.proc().cwd(),
+                abs_tmp,
+                Path(self.lsh.proc().cwd()).resolve(),
                 msg="`cd` seemingly didn't change the directory",
             )
 
