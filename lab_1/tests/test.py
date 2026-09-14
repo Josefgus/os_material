@@ -1,3 +1,32 @@
+"""
+This script runs a number of tests against your lsh shell implementation.
+If your shell passes all these tests, it's a good sign that it's working
+properly, but you should still manually test it yourself.
+
+To run it, set up a venv with the packages in requirements.txt:
+
+  # in the tests directory:
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip install -r requirements.txt
+
+And then, simply run this script. It will build anew and test an lsh
+implementation whose source is in '../code' relative to where you run the script
+from. If your lsh code is somewhere else, this default directory can be
+overridden by setting the LSH_CODE environment variable. So, your options are:
+
+  # if your lsh code is in the repo's lab_1/code, and you are running this from
+  # lab_1/test:
+  python test.py
+
+  # if your lsh code is anywhere else:
+  LSH_CODE=<your code dir> python test.py
+
+---
+Jacob Garby <garby@chalmers.se>
+Sept 2026
+"""
+
 import pty, os
 from time import sleep
 from psutil import Process, TimeoutExpired, STATUS_ZOMBIE
@@ -11,7 +40,7 @@ from HTMLTestRunner.runner import HTMLTestRunner
 import subprocess as sp
 from pathlib import Path
 
-LSH_CODE = "./code/"
+LSH_CODE = "../code/"
 if "LSH_CODE" in os.environ:
     LSH_CODE = os.environ["LSH_CODE"]
     print(f"(Using custom LSH_CODE from env: {LSH_CODE})")
