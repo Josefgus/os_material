@@ -7,6 +7,7 @@ This repository contains teaching material for the Operating Systems course EDA0
 - Topic folders such as `processes/`, `threads/`, and `virtual_memory/` contain the video lectures (`.mp4`), matching subtitles (`.srt`), and the corresponding slide decks, usually as both editable `.pptx` files and exported `.pdf` files.
 - `other_slides/` contains slide decks that are not tied to a specific video lecture, such as the course introduction and conclusion.
 - For most lectures, the last slides contain questions that can be used to assess students' understanding during live discussions. Answers are given in the notes section of the PowerPoint files.
+- Some topic folders also contain exam questions and answers in Markdown format. These files can be compiled into PDFs either with answers or as questions only.
 - `overview.xlsx` is the source overview used for the suggested lecture order below.
 
 The `.mp4` files are tracked with Git LFS. After cloning, run `git lfs pull` if the videos are missing or appear as pointer files.
@@ -34,6 +35,29 @@ Additional slide-only decks are available for the course introduction and conclu
 
 - [`course_introduction.pdf`](other_slides/course_introduction.pdf) / [`course_introduction.pptx`](other_slides/course_introduction.pptx)
 - [`conclusion.pdf`](other_slides/conclusion.pdf) / [`conclusion.pptx`](other_slides/conclusion.pptx)
+
+## Exam Questions
+
+Some folders contain Markdown files with exam questions and answers, for example:
+
+- [`processes/processes_exam_questions_answers.md`](processes/processes_exam_questions_answers.md)
+- [`threads/threads_exam_questions_answers.md`](threads/threads_exam_questions_answers.md)
+- [`process_scheduling/process_scheduling_exam_questions_answers.md`](process_scheduling/process_scheduling_exam_questions_answers.md)
+
+These Markdown files can be compiled into PDFs with [`scripts/compile_markdown_pdf.py`](scripts/compile_markdown_pdf.py). Use `--mode questions-and-answers` to include answers, or `--mode questions` to produce a PDF with questions only.
+
+For example:
+
+```bash
+python3 scripts/compile_markdown_pdf.py processes/processes_exam_questions_answers.md --mode questions-and-answers
+python3 scripts/compile_markdown_pdf.py processes/processes_exam_questions_answers.md --mode questions
+```
+
+By default, the generated PDF is saved next to the Markdown file. Use `-o` to choose a specific output path:
+
+```bash
+python3 scripts/compile_markdown_pdf.py threads/threads_exam_questions_answers.md --mode questions -o threads/threads_exam_questions.pdf
+```
 
 ## Video Part Order
 
@@ -174,3 +198,7 @@ The material is mainly based on the book *Modern Operating Systems* by Andrew S.
 - Lecture 10, security: Chapter 9, from the beginning until 9.4.1 (only the first paragraph of 9.4.1); 9.6 to 9.7.1 (only up to Data Execution Prevention - included); 9.9.3; The Sony Rootkit (starts at page 683, part of 9.9.5)
 - Lecture 11, I/O systems: Chapter 5.1-5.3
 - Lecture 12, virtualization: Chapter 7, 7.1-7.10 (included)
+
+## Acknowledgement
+
+This material is prepared for teaching purposes and builds on standard operating systems textbooks, in particular *Modern Operating Systems* by Andrew S. Tanenbaum and Herbert Bos, and *Operating System Concepts* by Abraham Silberschatz, Peter Baer Galvin, and Greg Gagne. Some figures, examples, and exercises used in the slides and supporting material are adapted from or inspired by these books. They remain the work of their respective authors and publishers; they are included here only to support the course and are not claimed as original material.
